@@ -1,5 +1,3 @@
-// console.log("I am On!");
-
 const msg = document.querySelector('#Msg');
 const start = document.querySelector('#Start');
 
