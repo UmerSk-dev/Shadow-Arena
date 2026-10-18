@@ -1,0 +1,316 @@
+
+/* =========================================
+   SHADOW ARENA — CINEMATIC DARK FANTASY
+   Clear background • Purple glow • Gold accents
+========================================= */
+
+/* ===== RESET ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== PAGE BACKGROUND ===== */
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background-color: #080510;
+
+    /* Lighter overlay to preserve background detail */
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(5, 3, 12, 0.03),
+            rgba(5, 3, 12, 0.10) 55%,
+            rgba(5, 3, 12, 0.30)
+        ),
+        url("../assets/arena_bg.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    font-family: Georgia, "Times New Roman", serif;
+    color: #f5efff;
+}
+
+/* ===== MAIN MENU ===== */
+
+div {
+    position: relative;
+
+    width: min(90%, 850px);
+    padding: 55px 25px;
+
+    text-align: center;
+
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* ===== SUBTLE PURPLE AURA ===== */
+
+div::before {
+    content: "";
+
+    position: absolute;
+    inset: 15% 12%;
+
+    z-index: -1;
+
+    background: rgba(102, 35, 180, 0.06);
+
+    filter: blur(45px);
+    border-radius: 50%;
+
+    animation: aura 5s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+/* ===== GAME TITLE ===== */
+
+h1 {
+    font-size: clamp(2.5rem, 7vw, 6rem);
+
+    font-weight: 500;
+    letter-spacing: clamp(3px, 1vw, 11px);
+    line-height: 1.2;
+
+    text-transform: uppercase;
+
+    color: #f8f3ff;
+
+    text-shadow:
+        0 0 5px rgba(230, 210, 255, 0.35),
+        0 0 18px rgba(167, 139, 250, 0.35),
+        0 0 40px rgba(124, 58, 237, 0.20);
+
+    animation: titleReveal 1.3s ease-out both;
+}
+
+/* ===== DECORATIVE TITLE DIVIDER ===== */
+
+h1::after {
+    content: "";
+
+    display: block;
+
+    width: min(250px, 65%);
+    height: 1px;
+
+    margin: 22px auto 0;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        #a78bfa,
+        #f5d08a,
+        #a78bfa,
+        transparent
+    );
+
+    box-shadow: 0 0 8px rgba(167, 139, 250, 0.35);
+}
+
+/* ===== SUBTITLE / MESSAGE ===== */
+
+p {
+    margin: 28px 0 42px;
+
+    font-size: clamp(1rem, 2.5vw, 1.45rem);
+    font-weight: normal;
+
+    letter-spacing: 2px;
+    line-height: 1.6;
+
+    color: #eee3ff;
+
+    text-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.85),
+        0 0 12px rgba(168, 85, 247, 0.3);
+
+    animation: subtitleReveal 1.6s ease-out both;
+}
+
+/* ===== START GAME BUTTON ===== */
+
+button {
+    position: relative;
+
+    padding: 17px 42px;
+
+    background: rgba(10, 6, 18, 0.72);
+    color: #f8e9c9;
+
+    border: 1px solid rgba(226, 190, 125, 0.85);
+    border-radius: 2px;
+
+    font-family: inherit;
+    font-size: 1rem;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    box-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.25),
+        0 0 14px rgba(124, 58, 237, 0.12);
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+
+    animation: subtitleReveal 1.9s ease-out both;
+}
+
+/* ===== BUTTON LIGHT SWEEP ===== */
+
+button::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -120%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(213, 181, 255, 0.22),
+        transparent
+    );
+
+    transition: left 0.55s ease;
+
+    pointer-events: none;
+}
+
+button:hover::before {
+    left: 120%;
+}
+
+/* ===== BUTTON HOVER ===== */
+
+button:hover {
+    color: #ffffff;
+
+    background: rgba(38, 17, 60, 0.88);
+    border-color: #d7b9ff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 12px rgba(167, 139, 250, 0.30),
+        0 0 28px rgba(124, 58, 237, 0.22);
+}
+
+/* ===== BUTTON CLICK ===== */
+
+button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ===== KEYBOARD FOCUS ===== */
+
+button:focus-visible {
+    outline: 2px solid #c4a5ff;
+    outline-offset: 5px;
+}
+
+/* ===== TITLE ANIMATION ===== */
+
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* ===== SUBTITLE AND BUTTON ANIMATION ===== */
+
+@keyframes subtitleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== PURPLE AURA ANIMATION ===== */
+
+@keyframes aura {
+    from {
+        opacity: 0.4;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+
+@media (max-width: 600px) {
+    div {
+        width: 94%;
+        padding: 35px 12px;
+    }
+
+    h1 {
+        letter-spacing: 3px;
+    }
+
+    p {
+        margin: 24px 0 34px;
+        letter-spacing: 1px;
+    }
+
+    button {
+        padding: 15px 24px;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+}
+
+/* ===== REDUCED MOTION ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
