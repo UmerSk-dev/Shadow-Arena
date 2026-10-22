@@ -1,0 +1,564 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+    --background: #08090d;
+    --panel: #11131a;
+    --red: #ff2638;
+    --red-dark: #9e1020;
+    --white: #f4f4f7;
+    --muted: #858795;
+    --border: rgba(255, 255, 255, 0.09);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 50% 0%, #291018 0%, transparent 45%),
+        var(--background);
+    color: var(--white);
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    color: inherit;
+}
+
+.background-glow {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    top: 30%;
+    left: -200px;
+    background: var(--red);
+    filter: blur(180px);
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* NAVIGATION */
+
+.navbar {
+    height: 82px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(8, 9, 13, 0.8);
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.nav-links {
+    display: flex;
+    gap: 38px;
+}
+
+.nav-links a {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--red);
+}
+
+.player-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #d6d6dc;
+}
+
+.online-dot,
+.footer-dot {
+    color: var(--red);
+}
+
+.online-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 0 12px var(--red);
+}
+
+/* MAIN LAYOUT */
+
+.container {
+    width: min(1200px, 88%);
+    margin: auto;
+}
+
+.intro {
+    text-align: center;
+    padding: 60px 0 42px;
+}
+
+.eyebrow {
+    color: var(--red);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin-bottom: 17px;
+}
+
+.intro h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(27px, 4vw, 43px);
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.intro h1 span {
+    color: var(--red);
+    text-shadow: 0 0 25px rgba(255, 38, 56, 0.3);
+}
+
+.intro-text {
+    color: var(--muted);
+    font-size: 17px;
+    margin-top: 14px;
+    letter-spacing: 1px;
+}
+
+/* CHARACTER CARDS */
+
+.selection-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.85fr);
+    gap: 25px;
+    align-items: stretch;
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.character-card {
+    position: relative;
+    height: 440px;
+    min-width: 0;
+    overflow: hidden;
+    text-align: left;
+    cursor: pointer;
+    background: #14141b;
+    border: 1px solid #292a34;
+    border-radius: 3px;
+    transition:
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.character-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(255, 38, 56, 0.7);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+.character-card.selected {
+    border-color: var(--red);
+    box-shadow: inset 0 0 0 1px var(--red);
+}
+
+.character-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(35%) brightness(0.75);
+    transition:
+        transform 0.6s ease,
+        filter 0.4s ease;
+}
+
+.character-card:hover img,
+.character-card.selected img {
+    transform: scale(1.06);
+    filter: grayscale(0%) brightness(0.95);
+}
+
+.fighter-number {
+    position: absolute;
+    z-index: 2;
+    top: 15px;
+    left: 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 8px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.card-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.12) 0%,
+        transparent 35%,
+        rgba(0, 0, 0, 0.35) 55%,
+        #08090d 100%
+    );
+    pointer-events: none;
+}
+
+.card-info {
+    position: absolute;
+    bottom: 47px;
+    left: 17px;
+    z-index: 2;
+}
+
+.card-info p {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8px;
+    color: #d2d2d9;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+}
+
+.card-info h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(17px, 2vw, 23px);
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.select-label {
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 12px 5px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--border);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #aaaab5;
+}
+
+.character-card.selected .select-label {
+    color: white;
+    background: var(--red-dark);
+}
+
+/* FIGHTER DETAILS */
+
+.fighter-panel {
+    padding: 28px 25px;
+    background: linear-gradient(145deg, #15151d, #0d0e14);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.panel-label {
+    color: var(--muted);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.rank {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    color: var(--red);
+}
+
+.fighter-panel > h2 {
+    margin-top: 19px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(27px, 3vw, 38px);
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.title-line {
+    height: 3px;
+    width: 45px;
+    background: var(--red);
+    margin: 15px 0 20px;
+    box-shadow: 0 0 12px rgba(255, 38, 56, 0.35);
+}
+
+.description {
+    color: #a7a8b3;
+    font-size: 16px;
+    line-height: 1.65;
+    min-height: 80px;
+}
+
+/* WEAPON */
+
+.weapon-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    margin-top: 15px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.weapon-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 38, 56, 0.09);
+    border: 1px solid rgba(255, 38, 56, 0.25);
+    color: var(--red);
+    font-size: 23px;
+}
+
+.weapon-info h3 {
+    margin-top: 7px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* STATS */
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    padding: 24px 0;
+}
+
+.stat-heading {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 9px;
+}
+
+.stat-heading span:last-child {
+    color: var(--red);
+}
+
+.stat-track {
+    width: 100%;
+    height: 5px;
+    background: #292a33;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--red-dark), #ff4555);
+    box-shadow: 0 0 12px rgba(255, 38, 56, 0.4);
+    transition: width 0.4s ease;
+}
+
+/* START BATTLE */
+
+.start-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 17px 20px;
+    border: 1px solid var(--red);
+    background: var(--red);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.start-button:hover {
+    background: #d8192b;
+    box-shadow: 0 0 25px rgba(255, 38, 56, 0.3);
+    transform: translateY(-2px);
+}
+
+.button-arrow {
+    font-size: 20px;
+}
+
+.message {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+/* FOOTER */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 30px 0;
+    margin-top: 30px;
+    border-top: 1px solid var(--border);
+    color: #6f707b;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.footer-dot {
+    font-size: 7px;
+    margin-left: 5px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 950px) {
+    .selection-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .character-card {
+        height: 390px;
+    }
+
+    .fighter-panel {
+        padding: 28px;
+    }
+
+    .description {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        height: auto;
+        min-height: 75px;
+        padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 28px;
+    }
+
+    .player-tag {
+        font-size: 9px;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+    .intro {
+        padding: 45px 0 30px;
+    }
+
+    .intro h1 {
+        font-size: 27px;
+    }
+
+    .intro-text {
+        font-size: 15px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .character-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .character-card {
+        height: 360px;
+    }
+
+    .card-info h2 {
+        font-size: 25px;
+    }
+
+    .fighter-panel {
+        padding: 22px 18px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        line-height: 1.8;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}

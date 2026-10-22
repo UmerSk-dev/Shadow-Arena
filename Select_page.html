@@ -3,9 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Page</title>
+
+    <title>Shadow Arena | Choose Your Fighter</title>
+
+    <link rel="stylesheet" href="css/select.css">
+    <script src="js/select.js" defer></script>
 </head>
+
 <body>
-    
+
+    <div class="background-glow"></div>
+
+    <header class="navbar">
+        <a href="#" class="logo">
+            SHADOW<span>ARENA</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#">HOME</a>
+            <a href="#" class="active">FIGHTERS</a>
+            <a href="#">ABOUT</a>
+        </nav>
+
+        <div class="player-tag">
+            <span class="online-dot"></span>
+            PLAYER 01
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="intro">
+            <p class="eyebrow">THE BATTLE BEGINS HERE</p>
+
+            <h1>CHOOSE YOUR <span>FIGHTER</span></h1>
+
+            <p class="intro-text">
+                Three warriors. Three destinies. One arena.
+            </p>
+        </section>
+
+        <section class="selection-layout">
+
+            <div class="character-grid">
+
+                <button class="character-card selected"
+                        type="button"
+                        data-character="ronin">
+
+                    <span class="fighter-number">01</span>
+
+                    <img src="assets/warrior.png" alt="Ronin warrior">
+
+                    <div class="card-gradient"></div>
+
+                    <div class="card-info">
+                        <p>SWORD MASTER</p>
+                        <h2>RONIN</h2>
+                    </div>
+
+                    <span class="select-label">SELECTED</span>
+                </button>
+
+
+                <button class="character-card"
+                        type="button"
+                        data-character="shadow">
+
+                    <span class="fighter-number">02</span>
+
+                    <img src="assets/shadow.png" alt="Shadow assassin">
+
+                    <div class="card-gradient"></div>
+
+                    <div class="card-info">
+                        <p>SILENT ASSASSIN</p>
+                        <h2>SHADOW</h2>
+                    </div>
+
+                    <span class="select-label">SELECT</span>
+                </button>
+
+
+                <button class="character-card"
+                        type="button"
+                        data-character="phantom">
+
+                    <span class="fighter-number">03</span>
+
+                    <img src="assets/phantom.png" alt="Phantom warrior">
+
+                    <div class="card-gradient"></div>
+
+                    <div class="card-info">
+                        <p>DARK KNIGHT</p>
+                        <h2>PHANTOM</h2>
+                    </div>
+
+                    <span class="select-label">SELECT</span>
+                </button>
+
+            </div>
+
+
+            <aside class="fighter-panel">
+
+                <div class="panel-top">
+                    <span class="panel-label">YOUR CHOSEN WARRIOR</span>
+                    <span class="rank">RANK / 01</span>
+                </div>
+
+                <h2 id="characterName">RONIN</h2>
+
+                <div class="title-line"></div>
+
+                <p id="characterDescription" class="description">
+                    Forged by defeat. Driven by revenge.
+                    A fearless sword master who fights until
+                    his final breath.
+                </p>
+
+                <div class="weapon-info">
+                    <div class="weapon-icon">⚔</div>
+
+                    <div>
+                        <p class="panel-label">SIGNATURE WEAPON</p>
+                        <h3 id="weaponName">DRAGON KATANA</h3>
+                    </div>
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+                        <div class="stat-heading">
+                            <span>POWER</span>
+                            <span id="powerValue">90</span>
+                        </div>
+
+                        <div class="stat-track">
+                            <div class="stat-fill power-fill"
+                                 style="width: 90%"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="stat">
+                        <div class="stat-heading">
+                            <span>SPEED</span>
+                            <span id="speedValue">70</span>
+                        </div>
+
+                        <div class="stat-track">
+                            <div class="stat-fill speed-fill"
+                                 style="width: 70%"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="stat">
+                        <div class="stat-heading">
+                            <span>DEFENSE</span>
+                            <span id="defenseValue">85</span>
+                        </div>
+
+                        <div class="stat-track">
+                            <div class="stat-fill defense-fill"
+                                 style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <button id="Start" class="start-button" type="button">
+                    <span>START BATTLE</span>
+                    <span class="button-arrow">↗</span>
+                </button>
+
+                <p id="Msg" class="message" aria-live="polite">
+                    YOUR LEGEND BEGINS HERE.
+                </p>
+
+            </aside>
+
+        </section>
+
+
+        <footer class="footer">
+            <span>SHADOW ARENA © 2026</span>
+            <span>CHOOSE WISELY. FIGHT FEARLESSLY.</span>
+            <span>PLAYER 01 <span class="footer-dot">●</span></span>
+        </footer>
+
+    </main>
+
 </body>
 </html>
