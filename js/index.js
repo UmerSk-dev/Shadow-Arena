@@ -2,5 +2,5 @@ const msg = document.querySelector('#Msg');
 const start = document.querySelector('#Start');
 
 start.addEventListener('click' , (e)=>{
-    msg.innerHTML = "Select your HERO !"
+    msg.innerHTML = "Entering Arena ..."
 })
