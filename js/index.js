@@ -3,4 +3,6 @@ const start = document.querySelector('#Start');
 
 start.addEventListener('click' , (e)=>{
     msg.innerHTML = "Entering Arena ..."
+
+    window.location.href = "select.html"
 })
