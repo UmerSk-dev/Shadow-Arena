@@ -4,20 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Shadow Arena</title>
+    <title>Shadow Arena | Enter the Battle</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500&display=swap"
+          rel="stylesheet">
 
     <link rel="stylesheet" href="css/index.css">
     <script src="js/index.js" defer></script>
 </head>
+
 <body>
 
-    <div class="intro">
-        <h1>Shadow Arena</h1>
+    <main class="arena">
 
-        <button id="Start" type="button">Start Game</button>
+        <!-- Atmospheric background -->
+        <div class="background"></div>
+        <div class="background-overlay"></div>
+        <div class="vignette"></div>
 
-        <p id="Msg" aria-live="polite"></p>
-    </div>
+        <!-- Editorial grid -->
+        <div class="grid-lines" aria-hidden="true">
+            <span class="grid-line vertical left"></span>
+            <span class="grid-line vertical right"></span>
+            <span class="grid-line horizontal"></span>
+        </div>
+
+        <!-- Navigation -->
+        <header class="navbar">
+
+            <a href="#" class="logo" aria-label="Shadow Arena home">
+                SHADOW<span>ARENA</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="#battle">THE ARENA</a>
+                <a href="#warriors">WARRIORS</a>
+                <a href="#lore">THE LORE</a>
+            </nav>
+
+            <button class="sound-button" type="button"
+                    aria-label="Sound settings">
+                <span class="sound-icon">◖</span>
+            </button>
+
+        </header>
+
+        <!-- Main content -->
+        <section class="hero-content" id="battle">
+
+            <div class="eyebrow">
+                <span class="status-dot"></span>
+                <span>SEASON 01 — THE AWAKENING</span>
+            </div>
+
+            <h1 class="headline">
+                <span class="headline-line">Enter the</span>
+                <span class="headline-line">world of</span>
+                <span class="headline-accent">Shadows.</span>
+            </h1>
+
+            <p class="description">
+                Every warrior has a story.
+                Every battle leaves a scar.
+                <strong>What will yours be?</strong>
+            </p>
+
+            <div class="hero-actions">
+
+                <button id="Start" class="start-button" type="button">
+                    <span>ENTER THE ARENA</span>
+                    <span class="button-arrow">↗</span>
+                </button>
+
+                <span class="game-info">
+                    <span class="info-symbol">✦</span>
+                    A NEW LEGEND BEGINS
+                </span>
+
+            </div>
+
+            <p id="Msg" class="message" aria-live="polite"></p>
+
+        </section>
+
+        <!-- Character feature card -->
+        <aside class="character-card" id="warriors">
+
+            <div class="card-top">
+                <span>WARRIOR No. 001</span>
+                <span class="card-status">AVAILABLE</span>
+            </div>
+
+            <div class="character-art" role="img"
+                 aria-label="A mysterious fantasy warrior">
+                <div class="character-glow"></div>
+                <span class="character-symbol">影</span>
+            </div>
+
+            <div class="character-details">
+                <div>
+                    <p class="character-category">THE EXILED KNIGHT</p>
+                    <h2>Kael Veyron</h2>
+                </div>
+                <span class="character-number">01</span>
+            </div>
+
+            <div class="character-footer">
+                <span>POWER</span>
+                <div class="power-track">
+                    <span></span>
+                </div>
+                <span>87</span>
+            </div>
+
+        </aside>
+
+        <!-- Bottom labels -->
+        <div class="bottom-left">
+            <span>01 / 05</span>
+            <span class="bottom-divider"></span>
+            <span>CHOOSE YOUR DESTINY</span>
+        </div>
+
+        <div class="bottom-right">
+            <span>FORGED IN SHADOW</span>
+            <span class="bottom-star">✳</span>
+        </div>
+
+        <!-- Oversized background typography -->
+        <div class="watermark" aria-hidden="true">
+            SHADOW
+        </div>
+
+    </main>
 
 </body>
 </html>
